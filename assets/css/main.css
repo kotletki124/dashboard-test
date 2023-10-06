@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap');
+@import 'vue-select/dist/vue-select.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply h-screen text-textBlack;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  #__nuxt {
+    @apply h-full;
+  }
+
+  svg {
+    @apply w-fit h-fit;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  label {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  a {
+    @apply text-secondaryLightRed;
+  }
+
+  .text-1 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .text-2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .text-3 {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .btnText-1 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+
+  .btnText-2 {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tblHeaderText {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .helperText {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+  }
+
+  .chipText {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 13px;
+    letter-spacing: 1px;
+  }
+
+  .chip {
+    @apply flex items-center justify-center uppercase p-2 h-6 chipText;
+  }
+
+  .chipGreen {
+    @apply chip text-secondaryGreen;
+    background: linear-gradient(0deg, #d2ecc7, #d2ecc7), linear-gradient(0deg, #e4f5dd, #e4f5dd);
+    border: 1px solid #d2ecc7;
+  }
+
+  .chipRed {
+    @apply chip text-secondaryLightRed;
+    background: linear-gradient(0deg, #fbd4d4, #fbd4d4), linear-gradient(0deg, #fcbebe, #fcbebe);
+    border: 1px solid #fcbebe;
+  }
+
+  .btn-solid {
+    @apply h-12 rounded-lg uppercase bg-primaryRed  text-textWhite;
+    box-shadow: 0px 8px 24px 0px #d90e321f;
+  }
+
+  .btn-solid:hover {
+    background-color: #d90e32d9;
+    box-shadow: 0px 8px 24px 0px #d90e3212;
+  }
+
+  .btn-outlined {
+    @apply h-12 rounded-lg uppercase btnText-1 bg-textWhite border text-secondaryLightRed border-secondaryLightRed;
+  }
+
+  .btn-outlined:hover {
+    @apply text-secondaryDarkRed border-secondaryDarkRed;
+  }
+
+  .nav {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}
