@@ -1,5 +1,20 @@
 <script setup>
-const props = defineProps({ label: String, placeholder: String, required: Boolean })
+const props = defineProps({
+  label: String,
+  placeholder: String,
+  required: Boolean,
+  modelValue: String
+})
+
+const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
+const value = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
 const type = ref('password')
 const input = ref(null)
 
@@ -10,7 +25,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <InputBasic ref="input" v-bind="props" :type="type">
+  <InputBasic ref="input" v-bind="props" :type="type" v-model="value">
     <template #endAdornment>
       <IconButton
         type="button"

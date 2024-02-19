@@ -1,3 +1,11 @@
 {
-  "extends": "../.nuxt/tsconfig.server.json"
+  "extends": "../.nuxt/tsconfig.server.json",
+  "esModuleInterop": true,
+  "compilerOptions": {
+    "target": "ESNext",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true
+  }
 }

@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({ variant: String })
+const props = defineProps({ variant: String, disabled: Boolean })
 </script>
 
 <template>

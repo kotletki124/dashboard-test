@@ -126,7 +126,7 @@
   }
 
   .btn-solid {
-    @apply h-12 rounded-lg uppercase bg-primaryRed  text-textWhite;
+    @apply h-12 rounded-lg uppercase bg-primaryRed text-textWhite;
     box-shadow: 0px 8px 24px 0px #d90e321f;
   }
 

@@ -7,31 +7,54 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "ts-node src/index.ts",
+    "typeorm": "typeorm-ts-node-esm -d ./typeorm/data-source.ts",
+    "typeorm-seeding:prepare-seeding-source": "rollup -c",
+    "typeorm:seed": "node .output/server/seed.js"
   },
   "devDependencies": {
+    "@concepta/typeorm-seeding": "^4.0.0-beta.1",
+    "@faker-js/faker": "^8.1.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@sidebase/nuxt-auth": "^0.6.0-beta.6",
     "@tailwindcss/forms": "^0.5.6",
-    "@types/node": "^20.8.2",
+    "@types/node": "^20.11.0",
     "@typescript-eslint/parser": "^6.7.3",
+    "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
     "autoprefixer": "^10.4.16",
+    "esbuild": "^0.19.4",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "nuxt": "^3.7.3",
+    "nuxt": "^3.9.3",
     "nuxt-svgo": "^3.5.3",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.30",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.3.3",
+    "ts-node": "10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "pg": "^8.11.3",
+    "@pinia/nuxt": "^0.5.1",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.4.0",
+    "pinia": "^2.1.7",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.17",
-    "vue-select": "^4.0.0-beta.6"
-  }
+    "typeorm": "0.3.17",
+    "vue-select": "^4.0.0-beta.6",
+    "vue3-spinner": "^0.0.17"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "postinstall": "patch-package"
 }

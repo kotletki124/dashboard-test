@@ -1,7 +1,7 @@
 <script setup>
 import IconUser from '~/assets/icons/24/user.svg'
 import IconRim from '~/assets/icons/24/rim.svg'
-import IconSettings from '~/assets/icons/24/user.svg'
+import IconSettings from '~/assets/icons/24/settings.svg'
 import WavesSvg from '~/assets/waves.svg?url'
 
 const items = [

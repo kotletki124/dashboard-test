@@ -1,16 +1,26 @@
 <script setup>
-defineProps({
+const props = defineProps({
   label: String,
   placeholder: String,
   required: Boolean,
   type: String,
   disabled: Boolean,
-  noHelperText: { type: Boolean, default: false }
+  noHelperText: { type: Boolean, default: false },
+  modelValue: String
 })
 
 const inputEl = ref(null)
-
 defineExpose({ inputEl })
+
+const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
+const value = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
 </script>
 
 <template>
@@ -26,6 +36,9 @@ defineExpose({ inputEl })
         :placeholder="placeholder"
         :disabled="disabled"
         class="border-textLineGrey placeholder:text-textLightGrey disabled:text-textLightGrey input"
+        v-model="value"
+        @focus="(e) => emit('focus', e)"
+        @blur="(e) => emit('blur', e)"
       />
       <div class="absolute right-3 leading-[0] -translate-y-[150%]">
         <slot name="endAdornment" />

@@ -1,13 +1,14 @@
 <script setup>
 defineProps({
-  modelValue: String,
+  modelValue: Object,
   tabs: Array
 })
 
 let emit = defineEmits(['update:modelValue'])
 
-const handleClick = (newTabId) => {
-  emit('update:modelValue', newTabId)
+const handleClick = (newTab) => {
+  emit('update:modelValue', newTab)
+  navigateTo({ query: { tab: newTab.id } })
 }
 </script>
 
@@ -16,8 +17,9 @@ const handleClick = (newTabId) => {
     <TabHeaderItem
       v-for="tab of tabs"
       :key="tab.id"
-      :selected="modelValue === tab.id"
-      @click="handleClick(tab.id)"
+      :id="tab.id"
+      :selected="modelValue.id === tab.id"
+      @click="handleClick(tab)"
     >
       {{ tab.label }}
     </TabHeaderItem>
