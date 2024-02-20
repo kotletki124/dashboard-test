@@ -46,7 +46,7 @@ const handleSubmit = (...args) => execute(0, ...args)
             <InputBasic label="Password" placeholder="Password" v-model="password">
               <template #helperText>
                 <span v-if="error" class="text-primaryRed">
-                  {{ error.statusMessage }}
+                  {{ error.data.message }}
                 </span>
               </template>
             </InputBasic>
