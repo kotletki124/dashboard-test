@@ -45,8 +45,8 @@ const handleSubmit = (...args) => execute(0, ...args)
             <InputBasic label="Email address" placeholder="Email" v-model="email" />
             <InputBasic label="Password" placeholder="Password" v-model="password">
               <template #helperText>
-                <span v-if="error" class="text-primaryRed">
-                  {{ error.data.message }}
+                <span v-if="error?.data?.message" class="text-primaryRed">
+                  {{ error?.data?.message }}
                 </span>
               </template>
             </InputBasic>
