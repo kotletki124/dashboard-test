@@ -1,75 +1,8 @@
-# Nuxt 3 Minimal Starter
+https://dashboard-test-flame.vercel.app
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Реальный проект (админ-панель). Дизайн - кастомный, взят с фигмы (более не доступен). Готовые компоненты практически не используются, все написаны с нуля.
+Реализован базовый бекэнд (авторизация на jwt токенах, api для взаимодействия с базой данных). Бэкенд код находится в этом же проекте.
 
-## Setup
+В задеплоенной демке отключена возможность редактирования данных (оставлена только возможность блокировать\разблокировать пользователя) ввиду доступности этого любому и отсутствию желания модерировать результаты редактирования. Включить в локальной копии проекта можно установив переменную окружения ALLOW_EDIT равной 'true'. Данные пользователей сгенерированы с помощью Faker.
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Стек: Nuxt 3 (используется Vue Composition API), Pinia, Tailwind, Typeorm, PostgresSql
