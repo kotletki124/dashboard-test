@@ -5,8 +5,16 @@ import { useAsyncState } from '@vueuse/core'
 
 definePageMeta({ layout: false })
 
+/* A workaround for a vue bug when sometimes during the initial render the form ref gets updated, but the UI not */
+const key = ref(0)
+setTimeout(() => {
+  key.value++
+}, 250)
+
 const authStore = useAuthStore()
 const { token } = storeToRefs(authStore)
+const form = reactive({})
+let formModified = false
 
 const {
   params: { id }
@@ -14,14 +22,26 @@ const {
 const { data, refresh } = useFetch(`/api/users/${id}`, {
   method: 'GET',
   headers: { authorization: token.value },
-  default: () => ({ loading: true }),
-  immediate: false
+  default: () => ({ loading: true })
 })
 
-await refresh()
+watch(data, (value) => {
+  if (!formModified) {
+    const { name = '', phone = '', email = '', credits = '', tokens = '' } = value
+    Object.assign(form, {
+      ...form,
+      name,
+      phone,
+      email,
+      credits: credits.toString(),
+      tokens: tokens.toString()
+    })
+  }
+})
 
-const { name = '', phone = '', email = '', credits = '', tokens = '' } = data.value
-let form = ref({ name, phone, email, credits: credits.toString(), tokens: tokens.toString() })
+watch(form, () => {
+  formModified = true
+})
 
 const { isLoading: updating, execute } = useAsyncState(
   async (overrides) => {
@@ -39,15 +59,9 @@ const { isLoading: updating, execute } = useAsyncState(
 const updateUser = (...args) => execute(0, ...args)
 
 const handleSubmit = async () => {
-  await updateUser({ ...form.value })
-  const { name = '', phone = '', email = '', credits = '', tokens = '' } = data.value
-  form.value = {
-    ...form.value,
-    name,
-    phone,
-    email,
-    credits: credits.toString(),
-    tokens: tokens.toString()
+  if (formModified) {
+    await updateUser(form)
+    formModified = false
   }
 }
 </script>
@@ -69,7 +83,7 @@ const handleSubmit = async () => {
           @set-blocked="(value) => updateUser({ isBlocked: value })"
           :updating="updating"
         />
-        <form class="flex flex-col w-96 mt-10" @submit.prevent="handleSubmit">
+        <form :key="key" class="flex flex-col w-96 mt-10" @submit.prevent="handleSubmit">
           <InputBasic
             label="Username"
             placeholder="Username"

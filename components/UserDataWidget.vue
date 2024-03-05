@@ -10,7 +10,7 @@ const emit = defineEmits(['setBlocked'])
 </script>
 
 <template>
-  <div class="flex gap-5 items-center border border-textLineGrey rounded-lg p-6">
+  <div class="flex gap-5 items-center border border-textLineGrey rounded-lg p-6 max-w-[1200px]">
     <img v-if="!props.data.loading" :src="imageUrl" class="rounded-full w-20 h-20" />
     <Skeleton v-else class="rounded-full w-20 h-20" />
     <div class="flex flex-col gap-2">

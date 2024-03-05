@@ -8,9 +8,9 @@ const { data } = storeToRefs(authStore)
 <template>
   <div class="w-full h-full">
     <HeaderLogo />
-    <div class="flex w-full h-full min-w-[600px]">
+    <div class="flex w-full h-fit min-h-full">
       <Nav />
-      <div class="relative w-full">
+      <div class="relative w-full h-full">
         <UserToolbar class="z-10">
           <LanguageSelect />
           <UserMenu :username="data.name" :avatar="data.imageUrl" />
